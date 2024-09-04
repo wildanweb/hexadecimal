@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decimal to Hexadecimal Converter with Music</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: linear-gradient(145deg, #292929, #1a1a1a);
+            border-radius: 20px;
+            box-shadow: 8px 8px 16px #121212, -8px -8px 16px #2c2c2c;
+            padding: 40px;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #333333;
+            color: #ffd700;
+            font-size: 18px;
+            box-shadow: inset 4px 4px 8px #121212, inset -4px -4px 8px #2c2c2c;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffd700;
+            border: none;
+            border-radius: 10px;
+            color: #1e1e1e;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ffc700;
+            transform: scale(1.05);
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #00ff00;
+        }
+
+        #musicControls {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #ffd700;
+        }
+
+        #musicControls button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #1e1e1e;
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            color: #ffd700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #musicControls button:hover {
+            background-color: #292929;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Decimal to Hexadecimal Converter</h1>
+
+        <label for="decimalInput">Enter a Decimal Number:</label>
+        <input type="number" id="decimalInput" placeholder="Enter a number">
+        
+        <button onclick="convertToHex()">Convert</button>
+        
+        <p id="output"></p>
+
+        <div id="musicControls">
+            <button onclick="toggleMusic()">Play Music</button>
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop autoplay>
+        <source src="lagu.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        function convertToHex() {
+            let decimalNumber = document.getElementById("decimalInput").value;
+            if (decimalNumber === "") {
+                alert("Please enter a decimal number!");
+                return;
+            }
+            let hexNumber = parseInt(decimalNumber).toString(16).toUpperCase();
+            document.getElementById("output").textContent = 
+                "Decimal " + decimalNumber + " is " + hexNumber + " in hexadecimal.";
+        }
+
+        function toggleMusic() {
+            let music = document.getElementById("backgroundMusic");
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+    </script>
+</body>
+</html>
